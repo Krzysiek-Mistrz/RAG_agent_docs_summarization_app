@@ -1,26 +1,23 @@
-import os
-from langchain.vectorstores import FAISS
-from langchain.embeddings import OpenAIEmbeddings
-from config import get_api_key
-from docs_loader import load_and_split_docs
+from os import path
+from langchain_community.vectorstores import FAISS
+from langchain_community.embeddings import OpenAIEmbeddings
+from src.docs_loader import load_and_split_docs
 
-API_KEY = get_api_key()
-
-def create_vectorstore(docs, index_path: str = "faiss_index") -> FAISS:
+def create_vectorstore(docs, api_key: str, index_path: str = "faiss_index") -> FAISS:
     """
     Embed documents and save a FAISS index to disk.
     """
-    embeddings = OpenAIEmbeddings(openai_api_key=API_KEY)
+    embeddings = OpenAIEmbeddings(openai_api_key=api_key)
     vectorstore = FAISS.from_documents(docs, embeddings)
     vectorstore.save_local(index_path)
     return vectorstore
 
-def get_vectorstore(path: str = "faiss_index") -> FAISS:
+def get_vectorstore(api_key: str, index_path: str = "faiss_index") -> FAISS:
     """
     Load a FAISS index from disk or create a new one if missing.
     """
-    embeddings = OpenAIEmbeddings(openai_api_key=API_KEY)
-    if os.path.exists(path):
-        return FAISS.load_local(path, embeddings)
+    embeddings = OpenAIEmbeddings(openai_api_key=api_key)
+    if path.exists(index_path):
+        return FAISS.load_local(index_path, embeddings)
     docs = load_and_split_docs("./docs")
-    return create_vectorstore(docs, path)
+    return create_vectorstore(docs, api_key, index_path)
