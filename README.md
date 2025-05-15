@@ -66,4 +66,4 @@ Type `exit` or `quit` to end the session.
 
 ## License
 
-MIT
+GNU GPL V3 @ Krzychu 2025
