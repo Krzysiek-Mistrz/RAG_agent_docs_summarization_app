@@ -27,16 +27,7 @@ A Retrieval-Augmented Generation (RAG) application that loads PDF documents, bui
 2. Install dependencies:
    ```bash
    pip install -r requirements.txt
-   ```
-   Or with Poetry:
-   ```bash
-   poetry install
-   ```
-
-3. Set your API key:
-   ```bash
-   export OPENAI_API_KEY="your_key_here"
-   ```
+   ```  
 
 ## Project Structure
 
@@ -49,10 +40,10 @@ A Retrieval-Augmented Generation (RAG) application that loads PDF documents, bui
 ├── docs/                # Place your PDF files here
 └── src/         # Generated FAISS index directory
      ├── __init__.py
-     ├── docs_loader.py       # Document loading & splitting
-     ├── vectorstore.py       # FAISS index creation/loading
-     ├── qa_chain.py          # RetrievalQA chain builder
-     └── agent.py             # LangChain agent initializer
+     ├── docs_loader.py
+     ├── vectorstore.py 
+     ├── qa_chain.py
+     └── agent.py
 ```
 
 ## Usage
