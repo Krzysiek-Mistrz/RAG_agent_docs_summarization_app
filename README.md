@@ -43,6 +43,7 @@ A Retrieval-Augmented Generation (RAG) application that loads PDF documents, bui
 ```
 .
 ├── README.md
+├── requirements.txt
 ├── config.py            # API key loader
 ├── main.py              # Application entrypoint
 ├── docs/                # Place your PDF files here
