@@ -2,7 +2,7 @@ from src.vectorstore import get_vectorstore
 from src.qa_chain import build_qa_chain
 from src.agent import initialize_summarization_agent
 
-api_key = input("Wprowadź swój klucz OpenAI API: ")
+api_key = input("Enter Ur OpenAI API: ")
 
 def main():
     """
