@@ -1,5 +1,5 @@
 from langchain.agents import initialize_agent, AgentType
-from langchain.llms import OpenAI
+from langchain_community.llms import OpenAI
 
 def initialize_summarization_agent(qa_chain, api_key):
     """
